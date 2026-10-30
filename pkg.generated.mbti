@@ -1,0 +1,60 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "hg3386628/ulid"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/random",
+}
+
+// Values
+pub const MAX_TIMESTAMP_MS : UInt64 = 0xFFFF_FFFF_FFFF
+
+pub fn random_bytes(@random.Rand, Int32) -> Bytes
+
+// Errors
+
+// Types and methods
+pub struct Generator {
+  // private fields
+}
+pub fn Generator::generate(Self, UInt64, Bytes) -> Result[Ulid, UlidError]
+pub fn Generator::new() -> Self
+
+pub struct Ulid {
+  // private fields
+} derive(Compare, Eq, @debug.Debug)
+pub fn Ulid::compare(Self, Self) -> Int32
+pub fn Ulid::equal(Self, Self) -> Bool
+pub fn Ulid::from_bytes(Bytes) -> Result[Self, UlidError]
+pub fn Ulid::generate(UInt64, Bytes) -> Result[Self, UlidError]
+pub fn Ulid::not_equal(Self, Self) -> Bool
+pub fn Ulid::op_ge(Self, Self) -> Bool
+pub fn Ulid::op_gt(Self, Self) -> Bool
+pub fn Ulid::op_le(Self, Self) -> Bool
+pub fn Ulid::op_lt(Self, Self) -> Bool
+pub fn Ulid::output(Self, &Logger) -> Unit
+pub fn Ulid::parse(String) -> Result[Self, UlidError]
+pub fn Ulid::randomness(Self) -> Bytes
+pub fn Ulid::timestamp_ms(Self) -> UInt64
+pub fn Ulid::to_bytes(Self) -> Bytes
+pub fn Ulid::to_repr(Self) -> @debug.Repr
+pub fn Ulid::to_string(Self) -> String
+pub impl Show for Ulid
+
+pub enum UlidError {
+  InvalidLength(Int32)
+  InvalidCharacter(Char)
+  TimestampOverflow
+  RandomnessLength(Int32)
+  MonotonicOverflow
+} derive(Eq, @debug.Debug)
+pub fn UlidError::equal(Self, Self) -> Bool
+pub fn UlidError::not_equal(Self, Self) -> Bool
+pub fn UlidError::output(Self, &Logger) -> Unit
+pub fn UlidError::to_repr(Self) -> @debug.Repr
+pub fn UlidError::to_string(Self) -> String
+pub impl Show for UlidError
+
+// Type aliases
+
+// Traits

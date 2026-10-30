@@ -1,0 +1,6 @@
+import {
+  "hg3386628/ulid",
+  "moonbitlang/core/random",
+}
+
+pkgtype(kind: "executable")
